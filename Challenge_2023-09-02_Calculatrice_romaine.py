@@ -11,6 +11,7 @@ def check_number(number:str)->bool:
     - I, X et C ne peuvent pas être répétés plus de trois fois
     - V, L et D ne peuvent pas apparaître plus d'une fois'''
     Caract = {"I": 0, "V": 0, "X": 0, "L": 0, "C": 0, "D": 0, "M": 0}
+    combi_no_valid = ["DM", "LM", "XM", "VM", "IM", "LD", "XD", "VD", "ID", "LC", "VC", "IC", "VL", "IL", "VX"]
     for car in number:    
         if car in Caract.keys():    
             Caract[car] += 1
@@ -19,6 +20,9 @@ def check_number(number:str)->bool:
     if (Caract["I"] > 3 or Caract["X"] > 3 or Caract["C"] > 3 or
         Caract["V"] > 1 or Caract["L"] > 1 or Caract["D"] > 1):
         return False
+    for combi in combi_no_valid:
+        if combi in number:
+            return False
     return True
 
 def check_operation(calculate:str)->bool:
