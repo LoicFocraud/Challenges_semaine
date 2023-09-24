@@ -22,9 +22,9 @@ def decoder(todecode:str, key:str)-> str:
     ast = re.match(r'(\**)', decoded[::-1]) # cherche les * à la fin
     return(decoded.split(ast.group())[0].replace("_"," "))
 
-tocode = input("Phrase à chiffer : ")
+tocode = input("Phrase à chiffrer : ")
 while len(tocode) <=1 :
-    tocode = input("La phrase doit contenir plusieurs caractères.\nPhrase à chiffer : ")
+    tocode = input("La phrase doit contenir plusieurs caractères.\nPhrase à chiffrer : ")
 key = input("Clé de chiffrement : ")
 while not key.isdigit() or int(key) > len(tocode) or int(key) <=1 :
     key = input("La clé doit être :\n - un nombre\n - supérieure à 1\n - plus petite que le nombre de caractères de la phrase à chiffrer.\nClé de chiffrement : ")
